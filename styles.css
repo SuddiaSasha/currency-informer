@@ -19,7 +19,7 @@ body {
     margin: 10px;
     margin-top: 20px;
     flex-shrink: 0;
-    /* не зменшується */
+    /* doesnt make smaller */
 }
 
 h2#current-date {
@@ -80,3 +80,15 @@ h2#converter-head-text {
 
 }
 
+
+.currency-select {
+    width: 33.33%;
+    height: 48px;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+}

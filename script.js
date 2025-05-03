@@ -6,7 +6,7 @@ fetch(
     .catch((err) => console.error(err));
 
 function render(arr) {
-    const list = arr.map(rate => `<li class="currency-item">${rate.txt} - ${rate.rate.toFixed(2)} грн</li>`).join("");
+    const list = arr.map(rate => `<li class="currency-item">${rate.cc} - ${rate.txt} - ${rate.rate.toFixed(2)} грн</li>`).join("");
     const currencyList = document.getElementById("currency-list");
     currencyList.innerHTML = "";
     currencyList.innerHTML = list;
@@ -21,18 +21,24 @@ function render(arr) {
 function renderCurrencyDropdownList(arr) {
     const foreignCurrencySelect = document.getElementById("foreign-currency-select");
 
-    const options = arr.map(rate => `<option value="${rate.txt}">${rate.txt}</option>`
+    const options = arr.map(rate => `<option value="${rate.rate}">${rate.txt} (${rate.rate.toFixed(2)})</option>`
     ).join("");
 
     foreignCurrencySelect.innerHTML += options; 
 }
 
 //FIRST FOREIGN INPUT (user to input amount of foreign currency)
-let foreignInputValue = '';
+let foreignInputValue = ''; //NEED TO USE THIS FOR CALCULATION <------------
 const foreignInput = document.getElementById('foreign-input');
 foreignInput.addEventListener('input', () => {
     foreignInputValue = foreignInput.value;
 
 });
 
-
+//FIRST DROPDOWNLIST select (foreign currency)
+let foreignCurrencySelectValue = '';
+let foreignCurrencySelect = document.getElementById("foreign-currency-select");
+foreignCurrencySelect.addEventListener("change", (event) => {
+    foreignCurrencySelectValue = parseFloat(foreignCurrencySelect.value);
+    console.log(foreignCurrencySelectValue);
+})
