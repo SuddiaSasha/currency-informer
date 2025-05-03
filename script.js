@@ -27,19 +27,31 @@ function renderCurrencyDropdownList(arr) {
     foreignCurrencySelect.innerHTML += options; 
 }
 
+//funcion to update value of element of CALCULATION
+function updateCalculatedHrn() {
+    const calculatedHrnInput = document.getElementById("calculated-hrn-input");
+
+    if (foreignInputValue && !isNaN(foreignCurrencySelectValue) && foreignCurrencySelectValue !== 'default') {
+        const calculatedValueHrn = parseFloat(foreignInputValue) * foreignCurrencySelectValue;
+        calculatedHrnInput.value = calculatedValueHrn.toFixed(4);
+    } else {
+        calculatedHrnInput.value = ''; // clean feild if vavlues arent valid
+    }
+}
+
 //FIRST FOREIGN INPUT (user to input amount of foreign currency)
-let foreignInputValue = ''; //NEED TO USE THIS FOR CALCULATION <------------
+let foreignInputValue = ''; //NEED TO USE THIS FOR CALCULATION (this is AMOUNT)<------------
 const foreignInput = document.getElementById('foreign-input');
 foreignInput.addEventListener('input', () => {
     foreignInputValue = foreignInput.value;
-
+    updateCalculatedHrn();  
 });
 
 //FIRST DROPDOWNLIST select (foreign currency)
-let foreignCurrencySelectValue = '';
+let foreignCurrencySelectValue = '';  //NEED TO USE THIS FOR CALCULATION (this is OPTION whith foreign currency) 
 let foreignCurrencySelect = document.getElementById("foreign-currency-select");
 foreignCurrencySelect.addEventListener("change", (event) => {
     foreignCurrencySelectValue = parseFloat(foreignCurrencySelect.value);
+    updateCalculatedHrn();
 })
-
 
