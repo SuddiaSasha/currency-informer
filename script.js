@@ -14,4 +14,25 @@ function render(arr) {
     const currentDate = document.getElementById("current-date");
     const today = arr[0].exchangedate;
     currentDate.textContent = `Курс валют на ${today}`;
+
+    renderCurrencyDropdownList(arr);
 }
+//function to render foreign currency for DROPDOWN LIST
+function renderCurrencyDropdownList(arr) {
+    const foreignCurrencySelect = document.getElementById("foreign-currency-select");
+
+    const options = arr.map(rate => `<option value="${rate.txt}">${rate.txt}</option>`
+    ).join("");
+
+    foreignCurrencySelect.innerHTML += options; 
+}
+
+//FIRST FOREIGN INPUT (user to input amount of foreign currency)
+let foreignInputValue = '';
+const foreignInput = document.getElementById('foreign-input');
+foreignInput.addEventListener('input', () => {
+    foreignInputValue = foreignInput.value;
+
+});
+
+

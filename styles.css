@@ -3,9 +3,10 @@ body {
     background-color: #f0fdf4;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: row; /* панелі в ряд */
     min-height: 100vh;
+
+    display: flex;
+    flex-direction: row;
 }
 
 .panel.left-panel {
@@ -15,8 +16,10 @@ body {
     padding: 24px;
     width: 360px;
     box-shadow: 2px 0 10px rgba(0, 128, 0, 0.05);
-    margin: 0;
-    flex-shrink: 0; /* не зменшується */
+    margin: 10px;
+    margin-top: 20px;
+    flex-shrink: 0;
+    /* не зменшується */
 }
 
 h2#current-date {
@@ -49,3 +52,31 @@ h2#current-date {
     background-color: #e0f7ea;
     transform: scale(1.01);
 }
+
+/*CONVERTER*/
+.converter-full {
+    flex: 1;
+    margin: 20px;
+    padding: 24px;
+    height: 250px;
+    background-color: #b6f7b9;
+    border-radius: 12px;
+}
+
+h2#converter-head-text {
+    color: #2e7d32;
+    text-align: center;
+    margin: 0%;
+    padding: 0%;
+}
+
+#foreign-input {
+    height: 30px;
+    width: 33%;
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+}
+
