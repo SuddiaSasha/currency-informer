@@ -40,5 +40,6 @@ let foreignCurrencySelectValue = '';
 let foreignCurrencySelect = document.getElementById("foreign-currency-select");
 foreignCurrencySelect.addEventListener("change", (event) => {
     foreignCurrencySelectValue = parseFloat(foreignCurrencySelect.value);
-    console.log(foreignCurrencySelectValue);
 })
+
+
