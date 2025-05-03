@@ -44,7 +44,7 @@ let foreignInputValue = ''; //NEED TO USE THIS FOR CALCULATION (this is AMOUNT)<
 const foreignInput = document.getElementById('foreign-input');
 foreignInput.addEventListener('input', () => {
     foreignInputValue = foreignInput.value;
-    updateCalculatedHrn();  
+    updateCalculatedHrn();  // < -- changes here 
 });
 
 //FIRST DROPDOWNLIST select (foreign currency)
