@@ -65,7 +65,7 @@ h2#current-date {
 h2#converter-head-text {
     color: #2e7d32;
     text-align: center;
-    margin: 0%;
+    margin: 3vh; 
     padding: 0%;
 }
 
@@ -81,7 +81,7 @@ h2#converter-head-text {
 
 
 .currency-select {
-    width: 33.33%;
+    width: 33vh;
     height: 48px;
     padding: 10px 12px;
     font-size: 16px;
@@ -92,11 +92,6 @@ h2#converter-head-text {
     box-sizing: border-box;
 }
 
-#hrn-amount-needed {
-    text-align: right;
-    color: #2e7d32;
-    margin-right: 80px;
-}
 
 #calculated-hrn-input {
     width: 31%;
@@ -131,4 +126,31 @@ h2#converter-head-text {
     background-color: #fff;
     color: #333;
     box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column-reverse;
+    }
+
+    .panel.left-panel {
+        width: auto;
+        margin: 10px;
+    }
+
+    .converter-full {
+        margin: 10px;
+        padding: 16px;
+    }
+
+    input[type="text"],
+    select {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    #hrn-amount-needed {
+        text-align: left;
+        margin-left: 0;
+    }
 }
