@@ -16,6 +16,7 @@ function render(arr) {
     currentDate.textContent = `Курс валют на ${today}`;
 
     renderCurrencyDropdownList(arr);
+    renderCurrencyDropdownList2(arr);
 }
 //function to render foreign currency for DROPDOWN LIST
 function renderCurrencyDropdownList(arr) {
@@ -24,8 +25,17 @@ function renderCurrencyDropdownList(arr) {
     const options = arr.map(rate => `<option value="${rate.rate}">${rate.txt} (${rate.rate.toFixed(2)})</option>`
     ).join("");
 
-    foreignCurrencySelect.innerHTML += options; 
+    foreignCurrencySelect.innerHTML += options;
 }
+function renderCurrencyDropdownList2(arr) {
+    const foreignCurrencySelect2 = document.getElementById("foreign-currency-select2");
+
+    const options = arr.map(rate => `<option value="${rate.rate}">${rate.txt} (${rate.rate.toFixed(2)})</option>`
+    ).join("");
+
+    foreignCurrencySelect2.innerHTML += options;
+};
+
 
 //funcion to update value of element of CALCULATION
 function updateCalculatedHrn() {
@@ -38,6 +48,18 @@ function updateCalculatedHrn() {
         calculatedHrnInput.value = ''; // clean feild if vavlues arent valid
     }
 }
+
+function updateCalculatedForeign() {
+    const calculatedForeign = document.getElementById("calculated-foreign");
+
+    if (hrnInputValue && !isNaN(foreignCurrencySelectValue2) && foreignCurrencySelectValue2 !== 'default') {
+        const calculatedValueForeign = parseFloat(hrnInputValue) / foreignCurrencySelectValue2;
+        calculatedForeign.value = calculatedValueForeign.toFixed(4); 
+    } else {
+        calculatedForeign.value = '';
+    }
+
+};
 
 //FIRST FOREIGN INPUT (user to input amount of foreign currency)
 let foreignInputValue = ''; //NEED TO USE THIS FOR CALCULATION (this is AMOUNT)<------------
@@ -55,3 +77,18 @@ foreignCurrencySelect.addEventListener("change", (event) => {
     updateCalculatedHrn();
 })
 
+//SECOND HRN INPUT
+let hrnInputValue = ''; // <--- use this for calculation
+const hrnInput = document.getElementById('hrn-input');
+hrnInput.addEventListener('input', () => {
+    hrnInputValue = hrnInput.value;
+    updateCalculatedForeign();
+});
+
+//second dropdown list
+let foreignCurrencySelectValue2 = '';  //NEED TO USE THIS FOR CALCULATION (this is OPTION whith foreign currency) 
+let foreignCurrencySelect2 = document.getElementById("foreign-currency-select2");
+foreignCurrencySelect2.addEventListener("change", (event) => {
+    foreignCurrencySelectValue2 = parseFloat(foreignCurrencySelect2.value);
+    updateCalculatedForeign();
+})
