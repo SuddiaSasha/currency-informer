@@ -112,6 +112,53 @@ h2#converter-head-text {
     box-sizing: border-box;
 }
 
+#history-output {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 128, 0, 0.08);
+}
+
+#history-output table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#history-output th,
+#history-output td {
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid #c8e6c9;
+}
+
+#history-output td:first-child,
+#history-output th:first-child {
+    border-right: 1px solid #c8e6c9;
+}
+
+#history-output th {
+    background-color: #e0f2f1;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+#history-output tr:last-child td {
+    border-bottom: none;
+}
+
+#history-output tr:hover {
+    background-color: #f1fdf7;
+}
+
+#history-output p {
+    display: none;
+}
+
 
 #calculated-hrn-input {
     width: 31%;
