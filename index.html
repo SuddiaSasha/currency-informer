@@ -17,28 +17,41 @@
         </ul>
     </div>
 
+    <div class="right-content">
+        <div class="converter-full">
+            <h2 id="converter-head-text">Конвертер валют</h2>
 
-    <div class="converter-full">
-        <h2 id="converter-head-text">Конвертер валют</h2>
+            <div class="converter foreign-to-hrn">
+                <input type="number" id="foreign-input" placeholder="Введіть суму" />
+                <select class="currency-select" id="foreign-currency-select">
+                    <option value="default">Виберіть валюту</option>
+                </select>
+                <input type="text" id="calculated-hrn-input" placeholder="Ціна в грн, яка потрібна для купівлі"
+                    readonly />
+            </div>
 
-        <div class="converter foreign-to-hrn">
-            <input type="number" id="foreign-input" placeholder="Введіть суму" />
-            <select class="currency-select" id="foreign-currency-select">
-                <option value="default">Виберіть валюту</option>
-            </select>
-            <input type="text" id="calculated-hrn-input" placeholder="Ціна в грн, яка потрібна для купівлі" readonly />
+            <div class="converter hrn-to-foreign">
+                <input type="number" id="hrn-input" placeholder="Введіть суму гривні">
+                <select class="currency-select" id="foreign-currency-select2">
+                    <option value="default">Виберіть валюту</option>
+                </select>
+                <input type="text" id="calculated-foreign" placeholder="Ціна в іноземній валюті" readonly />
+
+            </div>
+
+            <div class="pannel-for-week">
+                <h3 id="history-title">Курс валюти за тиждень</h3>
+                <p id="history-title-small">Виберіть валюту зі списку зліва</p>
+
+                <div id="history-output">
+
+
+                </div>
+
+            </div>
         </div>
 
-        <div class="converter hrn-to-foreign">
-            <input type="number" id="hrn-input" placeholder="Введіть суму гривні">
-            <select class="currency-select" id="foreign-currency-select2">
-                <option value="default">Виберіть валюту</option>
-            </select>
-            <input type="text" id="calculated-foreign" placeholder="Ціна в іноземній валюті" readonly />
-
-        </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 
